@@ -201,15 +201,15 @@ const releases = [
             <path d="M184 184L274 228" />
             <path d="M440 236H518" />
             <path d="M440 214Q600 112 760 82" />
-            <path d="M440 236H760" />
-            <path d="M440 254Q600 302 760 280" />
+            <path d="M692 175H760" />
+            <path d="M440 260C500 330 700 330 760 280" />
           </g>
           <g class="diagram-node">
             <rect x="24" y="120" width="160" height="92" rx="20" />
             <text x="104" y="158">
               App Flutter
             </text>
-            <text class="sub" x="104" y="184">
+            <text class="sub light" x="104" y="184">
               Experiencia paciente
             </text>
             <rect x="274" y="36" width="166" height="80" rx="18" />
@@ -259,14 +259,10 @@ const releases = [
       </div>
       <ul class="architecture-alt">
         <li>App paciente Flutter → API anterior y API NestJS</li>
-        <li>NestJS → capa de datos TypeORM → MySQL</li>
-        <li>
-          Firebase apoya el acceso, las notificaciones push y la observabilidad
-        </li>
-        <li>
-          Tareas programadas coordinan recordatorios; Socket.IO y SMTP apoyan la
-          entrega
-        </li>
+        <li>API NestJS → MySQL</li>
+        <li>API NestJS → Firebase</li>
+        <li>MySQL → tareas programadas</li>
+        <li>API NestJS → actualizaciones en vivo (Socket.IO y SMTP)</li>
       </ul>
     </section>
     <section id="decisions" class="section-wrap decisions-section">
