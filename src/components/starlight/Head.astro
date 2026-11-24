@@ -60,8 +60,8 @@ const schema = is404
 {head.map(({ tag: Tag, attrs, content }) => (
   <Tag {...attrs} set:html={content} />
 ))}
-<Font cssVariable="--font-body" />
-<Font cssVariable="--font-display" />
+<Font cssVariable="--font-body" preload={[{ subset: "latin", style: "normal", weight: 400 }]} />
+<Font cssVariable="--font-display" preload={[{ subset: "latin", style: "normal", weight: 700 }]} />
 {is404 && <meta name="robots" content="noindex" />}
 {!is404 && (
   <>
