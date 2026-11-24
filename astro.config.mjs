@@ -66,6 +66,8 @@ export default defineConfig({
       components: {
         Head: "./src/components/starlight/Head.astro",
         Search: "./src/components/starlight/Search.astro",
+        ThemeSelect: "./src/components/starlight/Empty.astro",
+        ThemeProvider: "./src/components/starlight/ThemeProvider.astro",
       },
       sidebar: [
         {
