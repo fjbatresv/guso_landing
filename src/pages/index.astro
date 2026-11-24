@@ -201,15 +201,15 @@ const releases = [
             <path d="M184 184L274 228" />
             <path d="M440 236H518" />
             <path d="M440 214Q600 112 760 82" />
-            <path d="M440 236H760" />
-            <path d="M440 254Q600 302 760 280" />
+            <path d="M692 205C726 205 726 180 760 180" />
+            <path d="M440 260C500 330 700 330 760 280" />
           </g>
           <g class="diagram-node">
             <rect x="24" y="120" width="160" height="92" rx="20" />
             <text x="104" y="158">
               Flutter app
             </text>
-            <text class="sub" x="104" y="184">
+            <text class="sub light" x="104" y="184">
               Patient experience
             </text>
             <rect x="274" y="36" width="166" height="80" rx="18" />
@@ -259,12 +259,10 @@ const releases = [
       </div>
       <ul class="architecture-alt">
         <li>Flutter patient app → legacy care API and NestJS API</li>
-        <li>NestJS → shared TypeORM data layer → MySQL</li>
-        <li>Firebase supports sign-in, push delivery and app observability</li>
-        <li>
-          Scheduled jobs coordinate reminders; Socket.IO and SMTP support
-          delivery
-        </li>
+        <li>NestJS API → MySQL</li>
+        <li>NestJS API → Firebase</li>
+        <li>MySQL → scheduled jobs</li>
+        <li>NestJS API → live updates (Socket.IO and SMTP)</li>
       </ul>
     </section>
     <section id="decisions" class="section-wrap decisions-section">

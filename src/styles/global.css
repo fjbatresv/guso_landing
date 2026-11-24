@@ -387,6 +387,9 @@ summary:focus-visible {
   fill: var(--slate);
   font: 400 12px var(--font-body);
 }
+.diagram-node text.sub.light {
+  fill: #e9ddec;
+}
 .diagram-lines path {
   fill: none;
   stroke: var(--purple);
