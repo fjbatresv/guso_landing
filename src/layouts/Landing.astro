@@ -1,0 +1,104 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css";
+const { lang, title, description } = Astro.props as {
+  lang: "en" | "es";
+  title: string;
+  description: string;
+};
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/"),
+  site = Astro.site!;
+const en = new URL(base, site).href,
+  es = new URL(`${base}es/`, site).href,
+  canonical = lang === "es" ? es : en;
+const og = new URL(`${base}assets/og-guso.png`, site).href;
+const author = {
+  "@type": "Person",
+  name: "Javier Batres",
+  url: "https://fjbatresv.com",
+};
+const jsonld = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: "Guso healthcare app case study",
+      url: en,
+      inLanguage: ["en", "es"],
+      author,
+    },
+    author,
+    {
+      "@type": "SoftwareApplication",
+      name: "Guso",
+      applicationCategory: "HealthApplication",
+      operatingSystem: "iOS, Android",
+      description,
+      url: canonical,
+      inLanguage: lang,
+      author,
+      image: og,
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Guso patient healthcare app case study",
+      description,
+      url: canonical,
+      inLanguage: lang,
+      author,
+      image: og,
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={en} />
+    <link rel="alternate" hreflang="es" href={es} />
+    <link rel="alternate" hreflang="x-default" href={en} />
+    <link rel="icon" href={`${base}assets/favicon.svg`} type="image/svg+xml" />
+    <meta name="theme-color" content="#f5f2f9" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+    <meta
+      property="og:locale:alternate"
+      content={lang === "es" ? "en_US" : "es_ES"}
+    />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content={
+        lang === "es"
+          ? "Caso de estudio de la app de salud para pacientes Guso"
+          : "Guso patient healthcare app case study"
+      }
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={og} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+    <Font
+      cssVariable="--font-body"
+      preload={[{ subset: "latin", style: "normal", weight: 400 }]}
+    />
+    <Font
+      cssVariable="--font-display"
+      preload={[{ subset: "latin", style: "normal" }]}
+    />
+    <Font cssVariable="--font-icons" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

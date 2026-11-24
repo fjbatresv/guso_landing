@@ -1,0 +1,31 @@
+:root {
+  --sl-font: var(--font-body);
+  --sl-font-system: var(--font-body);
+  --sl-color-accent-low: #f0e4f6;
+  --sl-color-accent: #8e22bf;
+  --sl-color-accent-high: #4b1763;
+  --sl-color-white: #2b1038;
+  --sl-color-gray-1: #3e3545;
+  --sl-color-gray-2: #5b5566;
+  --sl-color-gray-6: #f5f2f9;
+  --sl-color-gray-7: #fff;
+  --sl-color-bg: #f5f2f9;
+  --sl-color-bg-nav: #f5f2f9;
+  --sl-color-bg-sidebar: #f5f2f9;
+  --sl-content-width: 50rem;
+  --sl-text-h1: 2.7rem;
+  --sl-color-text-accent: #701b99;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.035em;
+}
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #6d2f91;
+  outline-offset: 3px;
+}
