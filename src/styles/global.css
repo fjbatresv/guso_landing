@@ -233,19 +233,12 @@ summary:focus-visible {
 }
 .product-list {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem 1.4rem;
 }
 .product-item {
-  grid-column: span 2;
   border-top: 1px solid var(--line);
   padding: 1.4rem 0.4rem 1.2rem;
-}
-.product-item:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-.product-item:nth-child(5) {
-  grid-column: 4 / span 2;
 }
 .material-symbol {
   font-family: var(--font-icons);
@@ -591,13 +584,6 @@ summary:focus-visible {
   }
   .hero {
     gap: 2rem;
-  }
-  .product-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .product-item,
-  .product-item:nth-child(n) {
-    grid-column: auto;
   }
   .decision-list {
     column-gap: 2rem;
